@@ -1,0 +1,1 @@
+gcc  -nostdinc -g  -c -o interrupt.o interrupt.S

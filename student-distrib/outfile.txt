@@ -1,0 +1,34 @@
+make: Warning: File `Makefile.dep' has modification time 1.1e+03 s in the future
+idtas.S:43:54: warning: no newline at end of file
+In file included from idt.c:3:
+keyboard.h:13:7: warning: no newline at end of file
+In file included from idt.c:4:
+interrupt.h:9:7: warning: no newline at end of file
+In file included from kernel.c:11:
+page.h:79:7: warning: no newline at end of file
+kernel.c: In function ‘entry’:
+kernel.c:142: warning: implicit declaration of function ‘idt_init’
+kernel.c:151: warning: implicit declaration of function ‘keyboard_init’
+kernel.c:152: warning: implicit declaration of function ‘rtc_init’
+In file included from keyboard.c:2:
+keyboard.h:13:7: warning: no newline at end of file
+In file included from page.c:1:
+page.h:79:7: warning: no newline at end of file
+page.c:12: warning: return type defaults to ‘int’
+page.c:12: warning: conflicting types for ‘initializePage’
+page.c:9: warning: previous declaration of ‘initializePage’ was here
+page.c: In function ‘initializePage’:
+page.c:29: warning: suggest parentheses around assignment used as truth value
+page.c:108:5: warning: no newline at end of file
+In file included from rtc.c:3:
+rtc.h:13:7: warning: no newline at end of file
+rtc.c: In function ‘rtc_handler’:
+rtc.c:23: warning: implicit declaration of function ‘inportb’
+tests.c: In function ‘idt_test_USER_1’:
+tests.c:54: warning: division by zero
+tests.c: In function ‘rtc_test_USER_1’:
+tests.c:65: warning: implicit declaration of function ‘test_interrupts’
+rtc.o: In function `rtc_handler':
+/workdirmain/ece391/myan13/mp3_group_82/student-distrib/rtc.c:23: undefined reference to `inportb'
+collect2: ld returned 1 exit status
+make: *** [bootimg] Error 1

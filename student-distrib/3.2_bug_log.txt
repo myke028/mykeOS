@@ -1,0 +1,15 @@
+﻿Bug 1: One bug we had was a cursor positioning bug, where the cursor would not be placed in the correct position.
+Solution: We realized we weren’t actually updating the cursor position correctly after processing each key press, so we went back and checked for off-by-one errors and calculations that were made wrongly that were related to cursor movement.
+Verify that your terminal driver correctly handles newline characters and adjusts the cursor position accordingly.
+
+
+Bug 2: Ctrl+L did not clear the screen like it should be.
+Solution: it turns out, via gdb, that the keyboard interrupt handler was not actually registering the combination press of ctrl key and L character key. Now that we knew the cause, we went right to fixing it. It turns out the key binds were conflicting with another keyboard interrupt handling board which we had to correct, and this helped our issue out.
+
+
+Bug 3: devel bootimg became corrupted. The file itself ran into issues and prevented us from compiling. This came at a very anticipated and crucial moment after fixing a lot of code, hoping it would work. But we weren’t even able to boot up the OS because of devel.
+Solution: We had to effectively somewhat redo mp0, after surfing Piazza for a while. This turned out to be the only actual thing we could do to to move past this issue and get on with the debugging.
+
+
+Bug 4: The read_data function, which was one of the more time consuming functions for us, ended up producing incorrect and inconsistent results. It was the function responsible for reading data from files, and it somehow made it so we couldn’t properly execute certain keyboard and basic terminal functionality.
+Solution: We made many different changes before the code was able to properly run. We checked for issues related to file size computing, as well as the handling end-of-file conditions, ensured that our file_system.c would actually properly keep track and account of the size of each file and data accurately, and that the read_data function itself would account for boundaries.
